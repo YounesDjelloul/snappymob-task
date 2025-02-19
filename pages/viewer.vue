@@ -239,7 +239,6 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Results Section -->
       <div v-if="fileContent" class="space-y-6">
         <div class="bg-white rounded-lg shadow-lg p-6">
           <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
