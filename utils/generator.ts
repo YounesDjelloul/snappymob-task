@@ -20,11 +20,26 @@ export class Generator {
         return Math.floor(Math.random() * 1000000).toString();
     }
 
+    private generateAlphanumeric(): string {
+        const length = Math.floor(Math.random() * 10) + 5
+        const spacesBefore = ' '.repeat(Math.floor(Math.random() * 11))
+        const spacesAfter = ' '.repeat(Math.floor(Math.random() * 11))
+
+        const chars = Generator.CHARS + Generator.NUMBERS
+        const value = Array.from(
+            {length},
+            () => chars[Math.floor(Math.random() * chars.length)]
+        ).join('')
+
+        return `${spacesBefore}${value}${spacesAfter}`
+    }
+
     private generateSequence(): string {
         const items = [
             this.generateAlphabetical(),
             this.generateReal(),
-            this.generateInteger()
+            this.generateInteger(),
+            this.generateAlphanumeric(),
         ];
         return items.join(',');
     }

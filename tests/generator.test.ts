@@ -33,5 +33,13 @@ describe('Data Generator', () => {
             const hasIntegers = items.some(item => /^\d+$/.test(item.trim()))
             expect(hasIntegers).toBe(true)
         })
+
+        it('should contain alphanumerics with both letters and numbers', () => {
+            const items = sampleData.split(',')
+            const hasProperAlphanumerics = items.some(item => {
+                return /^\s*(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+\s*$/.test(item)
+            })
+            expect(hasProperAlphanumerics).toBe(true)
+        })
     })
 })
