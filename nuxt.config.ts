@@ -6,5 +6,15 @@ export default defineNuxtConfig({
         '@nuxt/test-utils/module',
         '@nuxtjs/tailwindcss',
         'nuxt-icon'
-    ]
+    ],
+    app: {
+        pageTransition: {
+            name: 'page',
+            mode: 'out-in'
+        },
+        baseURL: '/snappymob-task/',
+    },
+    nitro: {
+        preset: 'github_pages'
+    },
 })
