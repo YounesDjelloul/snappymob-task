@@ -8,10 +8,18 @@ describe('Data Generator', () => {
         generator = new Generator()
     })
 
-    describe('addition', () => {
-        it('should add two numbers', () => {
-            const addition = 1 + 1
-            expect(2).toEqual(addition)
+    describe('when examining generated content', () => {
+        let sampleData: string
+
+        beforeEach(async () => {
+            generator.TARGET_SIZE = 1000
+            sampleData = await generator.generateFile()
+        })
+
+        it('should contain alphabetical strings', () => {
+            const items = sampleData.split(',')
+            const hasAlphabetical = items.some(item => /^[a-zA-Z]+$/.test(item.trim()))
+            expect(hasAlphabetical).toBe(true)
         })
     })
 })
