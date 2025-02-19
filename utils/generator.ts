@@ -10,9 +10,21 @@ export class Generator {
         ).join('');
     }
 
+    private generateReal(): string {
+        const wholePart = Math.floor(Math.random() * 1000000);
+        const decimalPart = Math.floor(Math.random() * 1000000);
+        return `${wholePart}.${decimalPart}`;
+    }
+
+    private generateInteger(): string {
+        return Math.floor(Math.random() * 1000000).toString();
+    }
+
     private generateSequence(): string {
         const items = [
-            this.generateAlphabetical()
+            this.generateAlphabetical(),
+            this.generateReal(),
+            this.generateInteger()
         ];
         return items.join(',');
     }
