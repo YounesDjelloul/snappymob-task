@@ -42,4 +42,25 @@ describe('Data Generator', () => {
             expect(hasProperAlphanumerics).toBe(true)
         })
     })
+
+    describe('when handling edge cases', () => {
+        let sampleData: string
+
+        beforeEach(async () => {
+            generator.TARGET_SIZE = 1000
+            sampleData = await generator.generateFile()
+        })
+
+        it('should not generate empty strings', async () => {
+            const data = await generator.generateFile()
+            const items = data.split(',')
+            const hasEmptyStrings = items.some(item => item.trim() === '')
+            expect(hasEmptyStrings).toBe(false)
+        })
+
+        it('should not have consecutive commas', async () => {
+            const data = await generator.generateFile()
+            expect(data).not.toMatch(/,,/)
+        })
+    })
 })
