@@ -56,6 +56,13 @@ const generateAndDownload = async () => {
   <div class="min-h-screen bg-gray-50 p-8 flex items-center justify-center">
     <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 space-y-6">
       <div class="space-y-2">
+        <NuxtLink
+            to="/viewer"
+            class="text-blue-500 hover:text-blue-600 flex items-center gap-1 mt-4 w-full justify-center mb-4"
+        >
+          <Icon name="lucide:eye" class="w-4 h-4"/>
+          Navigate to file viewer
+        </NuxtLink>
         <h1 class="text-2xl font-bold flex items-center gap-2 mb-4">
           <Icon name="lucide:hard-drive" class="w-6 h-6"/>
           Random Data Generator
