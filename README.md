@@ -1,4 +1,4 @@
-# Overview
+## Overview
 
 This is a repo that hosts Snappymob task, it's a VueJs application that would provide a simple interface to generate a
 10MB txt file on demand which contains comma separated objects of the following:
