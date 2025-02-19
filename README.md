@@ -18,8 +18,7 @@ npm install
 
 ## Running Tests
 
-In this project, I made sure everything is well tested and functioning as expected using TDD. You can run the tests by
-running:
+In this project, I made sure everything is well tested and functioning as expected using TDD. You can run the tests using the following command:
 
 ```bash
 npm run test
@@ -27,7 +26,7 @@ npm run test
 
 ## Dockerization
 
-The application is dockerized and providing local directory mappings between the docker server and application. You can build the image by running:
+The application is dockerized and providing local directory mappings between the docker server and the application. You can build the image by running:
 
 ```bash
 docker compose up --build
