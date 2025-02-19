@@ -43,6 +43,24 @@ describe('Data Generator', () => {
         })
     })
 
+    describe('when generating a file', () => {
+        it('should create a file of approximately 10MB in size', async () => {
+            const data = await generator.generateFile()
+            const sizeInMB = new Blob([data]).size / (1024 * 1024)
+
+            expect(sizeInMB).toBeGreaterThanOrEqual(9.9)
+            expect(sizeInMB).toBeLessThanOrEqual(10.1)
+        })
+
+        it('should generate data with comma-separated values', async () => {
+            const data = await generator.generateFile()
+            const items = data.split(',')
+
+            expect(items.length).toBeGreaterThan(1)
+            expect(data).toMatch(/^[^,]+(?:,[^,]+)*$/)
+        })
+    })
+
     describe('when handling edge cases', () => {
         let sampleData: string
 
