@@ -21,5 +21,17 @@ describe('Data Generator', () => {
             const hasAlphabetical = items.some(item => /^[a-zA-Z]+$/.test(item.trim()))
             expect(hasAlphabetical).toBe(true)
         })
+
+        it('should contain real numbers', () => {
+            const items = sampleData.split(',')
+            const hasRealNumbers = items.some(item => /^\d+\.\d+$/.test(item.trim()))
+            expect(hasRealNumbers).toBe(true)
+        })
+
+        it('should contain integers', () => {
+            const items = sampleData.split(',')
+            const hasIntegers = items.some(item => /^\d+$/.test(item.trim()))
+            expect(hasIntegers).toBe(true)
+        })
     })
 })
